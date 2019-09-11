@@ -1,11 +1,15 @@
 import React,{Component}from 'react';
 // import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom';
-import {createStore} from 'redux'
-import {Provider} from 'react-redux'
-import CommentApp from './containers/CommentApp'
-import commentReducer from './reducers/comments'
-
+import {BrowserRouter as Router,Route} from 'react-router-dom'
+// import {createStore} from 'redux'
+// import {Provider} from 'react-redux'
+// import CommentApp from './containers/CommentApp'
+// import commentReducer from './reducers/comments'
+import Jsdemo from './app/jsdemo'
+import Jsdemob from './app/jsdemob'
+import  Jsdemoc from './app/jsdemoc'
+import  Nav from './app/nav'
 
 // import ReduxHeader from './reduxDemo/Header'
 // import ReduxContent from './reduxDemo/Content'
@@ -36,7 +40,7 @@ import './index.css';
 //     }
 // }
 
-const store=createStore(commentReducer);
+// const store=createStore(commentReducer);
 
 
 // class Header extends Component{
@@ -180,8 +184,20 @@ ReactDOM.render(
     // <div>
     //     <Index/>
     // </div>,
-    <Provider store={store}>
-    <CommentApp/>
-    </Provider>,
+
+    // <Provider store={store}>
+    // <CommentApp/>
+    // </Provider>,
+    // <Jsdemo/>,
+
+    // 路由
+    <Router>    
+        <div>
+            <Nav/>
+            <Route exact path='/' component={Jsdemo}/>
+            <Route exact path='/jsdemob' component={Jsdemob}/>
+            <Route exact path='/jsdemoc' component={Jsdemoc}/>
+        </div>
+    </Router>,
     document.getElementById('root')
 )
